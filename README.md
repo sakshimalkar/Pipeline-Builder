@@ -16,16 +16,11 @@
 - [Overview](#-overview)
 - [Features](#-features)
 - [Tech Stack](#-tech-stack)
-- [Architecture](#-architecture)
 - [Project Structure](#-project-structure)
 - [Getting Started](#-getting-started)
 - [How It Works](#-how-it-works)
-- [API Documentation](#-api-documentation)
-- [DAG Detection](#-dag-detection)
 - [Screenshots](#-screenshots)
 - [Testing](#-testing)
-- [Author](#-author)
-- [Acknowledgments](#-acknowledgments)
 
 ---
 
@@ -84,6 +79,56 @@ The application demonstrates clean code architecture, component abstraction, and
 
 ---
 
+## 📁 Project Structure
+
+pipeline-builder/
+│
+├── backend/ # FastAPI Backend
+│ ├── main.py # API endpoints & DAG detection
+│ └── requirements.txt # Python dependencies
+│
+├── frontend/ # React Frontend
+│ ├── public/ # Static assets
+│ └── src/
+│ ├── nodes/ # Node components
+│ │ ├── BaseNode.js # Core abstraction ⭐
+│ │ ├── inputNode.js
+│ │ ├── textNode.js # Variables & auto-resize
+│ │ ├── llmNode.js
+│ │ ├── outputNode.js
+│ │ ├── calculatorNode.js
+│ │ ├── filterNode.js
+│ │ ├── dateNode.js
+│ │ ├── jsonNode.js
+│ │ └── emailNode.js
+│ ├── App.js # Main application
+│ ├── submit.js # Pipeline submission
+│ ├── toolbar.js # Node toolbar
+│ ├── store.js # Zustand state
+│ ├── draggableNode.js # Drag functionality
+│ ├── index.js # Entry point
+│ └── index.css # Global styles
+│
+├── .gitignore # Git ignore rules
+├── package.json # Frontend dependencies
+└── README.md # Project documentation
+
+---
+
+## 🚀 Getting Started
+
+### Prerequisites
+
+| Software | Version | Download |
+|----------|---------|----------|
+| **Node.js** | 18+ | [Download](https://nodejs.org/) |
+| **Python** | 3.8+ | [Download](https://python.org/) |
+| **npm** | 9+ | Included with Node.js |
+| **pip** | Latest | Included with Python |
+
+---
+## 🎯 How it Work
+
 1. Drag nodes from toolbar to canvas
          ↓
 2. Connect nodes (output → input)
@@ -97,3 +142,17 @@ The application demonstrates clean code architecture, component abstraction, and
 6. Backend validates pipeline
          ↓
 7. Alert shows: nodes, edges, DAG status
+
+---
+## 🧪 Testing
+
+Test Scenarios
+
+Scenario	Expected Result
+
+Valid pipeline (no cycles)	        is_dag: true ✅
+Pipeline with cycle	        is_dag: false ⚠️
+Single node	                 1 node, 0 edges
+Multiple connections	        Correct edge count
+Text node {{name}}	        Handle created
+Auto-resize	                 Grows with content
