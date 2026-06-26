@@ -11,6 +11,11 @@
 
 ---
 
+## 🚀 Live Demo
+
+- **Frontend:** [https://your-app-link.vercel.app](https://your-app-link.vercel.app) *(optional)*
+- **Backend API:** `http://localhost:8000`
+
 ## 📋 Table of Contents
 
 - [Overview](#-overview)
